@@ -3,375 +3,678 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exploner AI - The Future of Video Creation</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
-<link rel="shortcut icon" type="image/png" href="/favicon.png?v=2">
-<link rel="apple-touch-icon" href="/favicon.png?v=2">
+
+<title>Exploner | Turn Intent Into Action</title>
+
+<meta name="description" content="Exploner is a contextual visual demonstration interaction AI platform that turns digital tasks and learning objectives into real-time visual demonstrations and interactive experiences.">
+
+<link rel="icon" type="image/png" href="favicon.png">
 
 <style>
+
+:root{
+--brand:#F5A623;
+--brand-dark:#D88C00;
+--dark:#111111;
+--text:#282828;
+--muted:#6c6c6c;
+--bg:#FCFBF8;
+--white:#ffffff;
+--border:#ece8df;
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-    background:#0b1220;
-    color:white;
-    line-height:1.6;
+font-family:Inter,Segoe UI,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.7;
+overflow-x:hidden;
 }
 
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    left:0;
-    background:rgba(8,12,25,0.95);
-    backdrop-filter:blur(12px);
-    z-index:1000;
+.container{
+width:min(1180px,92%);
+margin:auto;
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+section{
+padding:110px 0;
+}
+
+.navbar{
+position:sticky;
+top:0;
+z-index:99;
+background:rgba(252,251,248,.92);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--border);
+}
+
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:80px;
 }
 
 .logo{
-    font-size:1.6rem;
-    font-weight:bold;
-    color:#4f9cff;
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:800;
+font-size:1.2rem;
 }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:30px;
+.logo img{
+width:42px;
+height:42px;
+object-fit:contain;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    transition:0.3s;
+.nav-links{
+display:flex;
+gap:28px;
+align-items:center;
 }
 
-nav a:hover{
-    color:#4f9cff;
+.nav-links a{
+font-size:.95rem;
+font-weight:600;
+color:#555;
 }
+
+.nav-btn{
+background:#111;
+color:#fff!important;
+padding:12px 18px;
+border-radius:999px;
+}
+
+/* HERO */
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:120px 20px 50px;
-    background:
-    radial-gradient(circle at top left,#2146ff33,transparent 40%),
-    radial-gradient(circle at bottom right,#00cfff33,transparent 40%);
+padding-top:70px;
+padding-bottom:90px;
 }
 
-.hero-content{
-    max-width:900px;
+.hero-grid{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:60px;
+align-items:center;
+}
+
+.badge{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:#FFF0CC;
+color:#8A5A00;
+font-size:.75rem;
+font-weight:700;
+letter-spacing:.12em;
+text-transform:uppercase;
 }
 
 .hero h1{
-    font-size:4rem;
-    margin-bottom:20px;
-    background:linear-gradient(90deg,#4f9cff,#00d4ff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+font-size:clamp(3.5rem,8vw,6.5rem);
+line-height:.93;
+letter-spacing:-.07em;
+margin:22px 0;
+max-width:750px;
+}
+
+.hero h1 span{
+color:var(--brand-dark);
 }
 
 .hero p{
-    font-size:1.2rem;
-    color:#d9d9d9;
-    margin-bottom:35px;
+font-size:1.12rem;
+color:var(--muted);
+max-width:650px;
+}
+
+.hero-buttons{
+display:flex;
+gap:14px;
+margin-top:35px;
+flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    padding:15px 35px;
-    background:#4f9cff;
-    color:white;
-    text-decoration:none;
-    border-radius:50px;
-    transition:0.3s;
-    font-weight:bold;
+padding:15px 24px;
+border-radius:999px;
+font-weight:700;
+display:inline-flex;
+align-items:center;
+justify-content:center;
 }
 
-.btn:hover{
-    transform:translateY(-3px);
-    background:#2e82ff;
+.btn-primary{
+background:#111;
+color:#fff;
 }
 
-.section{
-    padding:100px 8%;
+.btn-secondary{
+border:1px solid var(--border);
+background:#fff;
 }
+
+.hero-video{
+border-radius:26px;
+overflow:hidden;
+box-shadow:0 25px 80px rgba(0,0,0,.12);
+border:1px solid var(--border);
+background:#fff;
+}
+
+.hero-video video{
+width:100%;
+display:block;
+}
+
+/* DEMOS */
 
 .section-title{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:60px;
+font-size:clamp(2.3rem,5vw,4rem);
+line-height:1;
+letter-spacing:-.05em;
+margin-bottom:18px;
 }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+.section-sub{
+max-width:700px;
+color:var(--muted);
+margin-bottom:50px;
 }
 
-.card{
-    background:#131d35;
-    padding:30px;
-    border-radius:20px;
-    transition:0.3s;
-    border:1px solid rgba(255,255,255,0.08);
+.demo-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+.demo-card{
+background:white;
+border-radius:24px;
+overflow:hidden;
+border:1px solid var(--border);
+box-shadow:0 16px 40px rgba(0,0,0,.05);
 }
 
-.card h3{
-    margin-bottom:15px;
-    color:#4f9cff;
+.demo-card video{
+width:100%;
+display:block;
+background:#000;
 }
 
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
+.demo-card h3{
+padding:20px;
+font-size:1.1rem;
 }
 
-.about-box{
-    background:#131d35;
-    padding:40px;
-    border-radius:20px;
+/* PROBLEM */
+
+.problem{
+background:white;
 }
 
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin-top:40px;
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:40px;
 }
 
 .stat{
-    text-align:center;
-    background:#131d35;
-    padding:30px;
-    border-radius:15px;
+padding:35px;
+background:#fff;
+border-radius:22px;
+border:1px solid var(--border);
 }
 
-.stat h2{
-    color:#4f9cff;
+.stat h3{
+font-size:3rem;
+color:var(--brand-dark);
+letter-spacing:-.05em;
+margin-bottom:10px;
 }
 
-.cta{
-    text-align:center;
-    padding:100px 20px;
-    background:linear-gradient(135deg,#0d1b36,#102c5e);
+.stat p{
+color:var(--muted);
 }
+
+/* INTENT */
+
+.intent{
+text-align:center;
+}
+
+.intent h2{
+font-size:clamp(3rem,6vw,5rem);
+letter-spacing:-.06em;
+line-height:.95;
+margin-bottom:25px;
+}
+
+.intent p{
+max-width:900px;
+margin:auto;
+font-size:1.15rem;
+color:var(--muted);
+}
+
+/* BUILT FOR */
+
+.dark{
+background:#111;
+color:white;
+}
+
+.dark .section-sub{
+color:#bdbdbd;
+}
+
+.audience-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+margin-top:50px;
+}
+
+.audience-card{
+border:1px solid rgba(255,255,255,.12);
+border-radius:24px;
+padding:35px;
+}
+
+.audience-card h3{
+font-size:1.5rem;
+margin-bottom:18px;
+}
+
+.audience-card ul{
+padding-left:18px;
+color:#c7c7c7;
+}
+
+/* MISSION */
+
+.mv-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+}
+
+.mv-card{
+background:#fff;
+padding:40px;
+border-radius:24px;
+border:1px solid var(--border);
+}
+
+.mv-card h3{
+font-size:2rem;
+margin-bottom:18px;
+}
+
+/* WAITLIST */
+
+.waitlist{
+background:linear-gradient(135deg,#f5a623,#e09500);
+border-radius:32px;
+padding:70px;
+color:#201300;
+}
+
+.waitlist h2{
+font-size:clamp(2.5rem,5vw,4.5rem);
+line-height:.95;
+margin-bottom:18px;
+}
+
+.waitlist p{
+max-width:700px;
+margin-bottom:35px;
+}
+
+.waitlist-btn{
+display:inline-block;
+padding:18px 28px;
+border-radius:999px;
+background:#111;
+color:white;
+font-weight:700;
+}
+
+/* FOOTER */
 
 footer{
-    text-align:center;
-    padding:30px;
-    background:#070b16;
-    color:#888;
+padding:40px 0;
+border-top:1px solid var(--border);
 }
 
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2.7rem;
+.footer-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.about{
-    grid-template-columns:1fr;
+.footer-logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:800;
 }
 
-.stats{
-    grid-template-columns:1fr;
+.footer-logo img{
+width:32px;
+height:32px;
 }
 
-nav ul{
-    display:none;
+@media(max-width:900px){
+
+.hero-grid,
+.mv-grid{
+grid-template-columns:1fr;
 }
 
+.demo-grid,
+.stats-grid,
+.audience-grid{
+grid-template-columns:1fr;
 }
+
+.nav-links a:not(.nav-btn){
+display:none;
+}
+
+.hero{
+padding-top:40px;
+}
+}
+
 </style>
-
 </head>
 <body>
 
-<header>
-<nav>
-<div class="logo">Exploner AI</div>
-<ul>
-<li><a href="#features">Features</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#technology">Technology</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<nav class="navbar">
+<div class="container nav-inner">
+
+<a class="logo" href="#">
+<img src="favicon.png" alt="Exploner Logo">
+<span>Exploner</span>
+</a>
+
+<div class="nav-links">
+<a href="#demos">Demos</a>
+<a href="#problem">Problem</a>
+<a href="#audiences">Built For</a>
+<a href="#waitlist" class="nav-btn">Join Waitlist</a>
+</div>
+
+</div>
 </nav>
-</header>
 
 <section class="hero">
-<div class="hero-content">
-<h1>Create Stunning Videos With AI</h1>
-
-<p>
-Exploner AI empowers creators, businesses, and innovators to generate,
-edit, translate, lip-sync, and enhance videos using next-generation
-artificial intelligence. Transform ideas into cinematic content in minutes.
-</p>
-
-<a href="#" class="btn">Get Started</a>
-</div>
-</section>
-
-<section class="section" id="features">
-
-<h2 class="section-title">Powerful Video AI Features</h2>
-
-<div class="features">
-
-<div class="card">
-<h3>AI Video Generation</h3>
-<p>
-Generate professional-quality videos from simple text prompts. Turn ideas
-into visual stories instantly.
-</p>
-</div>
-
-<div class="card">
-<h3>Advanced Lip Sync</h3>
-<p>
-Synchronize speech and facial movement naturally in multiple languages
-while maintaining realistic expressions.
-</p>
-</div>
-
-<div class="card">
-<h3>Voice Cloning</h3>
-<p>
-Preserve a speaker's unique voice across different languages and scripts
-with high accuracy.
-</p>
-</div>
-
-<div class="card">
-<h3>Smart Editing</h3>
-<p>
-Automatically remove mistakes, improve quality, add effects, and optimize
-content for social media.
-</p>
-</div>
-
-<div class="card">
-<h3>Video Translation</h3>
-<p>
-Expand your audience globally through AI-powered translation and dubbing.
-</p>
-</div>
-
-<div class="card">
-<h3>4K Enhancement</h3>
-<p>
-Upscale older footage and improve visual quality using deep-learning models.
-</p>
-</div>
-
-</div>
-</section>
-
-<section class="section" id="about">
-
-<div class="about">
+<div class="container hero-grid">
 
 <div>
-<h2 class="section-title">About Exploner AI</h2>
+
+<div class="badge">
+COMING SOON
+</div>
+
+<h1>
+Turn
+<span>Intent</span>
+Into
+Action.
+</h1>
 
 <p>
-Exploner AI is designed to make video creation accessible to everyone.
-Whether you're a student, content creator, startup founder, educator,
-or business owner, our platform allows you to produce high-quality
-video content without an expensive production team.
+Exploner is a contextual visual demonstration interaction AI platform that turns digital tasks and learning objectives into real-time visual demonstrations and interactive experiences matched to the user's intent.
 </p>
 
-<br>
-
-<p>
-Using modern generative AI and machine learning systems, Exploner AI
-helps users create engaging stories, marketing campaigns, educational
-content, and multilingual media experiences faster than ever before.
-</p>
-</div>
-
-<div class="about-box">
-
-<h3 style="color:#4f9cff;margin-bottom:20px;">
-Why Creators Choose Exploner AI
-</h3>
-
-<p>
-✓ Faster production workflows<br><br>
-✓ Lower content creation costs<br><br>
-✓ Realistic AI-generated video output<br><br>
-✓ Multilingual support<br><br>
-✓ Creator-friendly tools<br><br>
-✓ Scalable for businesses
-</p>
-
+<div class="hero-buttons">
+<a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
+<a href="#demos" class="btn btn-secondary">Watch Demos</a>
 </div>
 
 </div>
 
-<div class="stats">
-
-<div class="stat">
-<h2>10M+</h2>
-<p>Videos Generated</p>
-</div>
-
-<div class="stat">
-<h2>150+</h2>
-<p>Countries Reached</p>
-</div>
-
-<div class="stat">
-<h2>99.9%</h2>
-<p>AI Processing Uptime</p>
+<div class="hero-video">
+<video autoplay muted loop playsinline>
+<source src="concept.mp4" type="video/mp4">
+</video>
 </div>
 
 </div>
-
 </section>
 
-<section class="cta" id="technology">
+<section id="demos">
+<div class="container">
 
-<h2 style="font-size:2.5rem;margin-bottom:20px;">
-The Future of Video Intelligence
+<h2 class="section-title">See Exploner In Action</h2>
+
+<p class="section-sub">
+Real demonstrations showing how Exploner transforms intent into guided action.
+</p>
+
+<div class="demo-grid">
+
+<div class="demo-card">
+<video controls preload="metadata">
+<source src="concept.mp4" type="video/mp4">
+</video>
+<h3>Concept Demonstration</h3>
+</div>
+
+<div class="demo-card">
+<video controls preload="metadata">
+<source src="excel.mp4" type="video/mp4">
+</video>
+<h3>Excel Demonstration</h3>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="problem" class="problem">
+<div class="container">
+
+<h2 class="section-title">
+The Cost Of Digital Friction
 </h2>
 
-<p style="max-width:800px;margin:auto;margin-bottom:35px;">
-From text-to-video generation to intelligent editing and multilingual
-lip synchronization, Exploner AI combines cutting-edge artificial
-intelligence technologies into one seamless platform.
-</p>
+<div class="stats-grid">
 
-<a href="#" class="btn">Explore the Platform</a>
+<div class="stat">
+<h3>25%</h3>
+<p>Work time wasted searching for answers.</p>
+</div>
 
+<div class="stat">
+<h3>2.4B</h3>
+<p>Hours lost annually across the Fortune 500.</p>
+</div>
+
+<div class="stat">
+<h3>36</h3>
+<p>Working days wasted annually per employee.</p>
+</div>
+
+<div class="stat">
+<h3>55%</h3>
+<p>Employees report frustration from digital friction.</p>
+</div>
+
+<div class="stat">
+<h3>51%</h3>
+<p>Say digital friction contributes to burnout.</p>
+</div>
+
+<div class="stat">
+<h3>$10B+</h3>
+<p>Projected virtual-lab market by 2033.</p>
+</div>
+
+</div>
+
+</div>
 </section>
 
-<footer id="contact">
+<section class="intent">
+<div class="container">
+
+<h2>
+Exploner AI Turns Intent Into Action
+</h2>
+
 <p>
-© 2026 Exploner AI. All Rights Reserved.
+When people get stuck while trying to accomplish a task, existing solutions often create another layer of frustration. Text instructions must be translated into actions, and prerecorded videos may not address the user's exact point of confusion. Exploner provides contextual visual demonstrations and interactive experiences that respond to what the user is trying to achieve.
 </p>
+
+</div>
+</section>
+
+<section id="audiences" class="dark">
+<div class="container">
+
+<h2 class="section-title">
+Built For Digital Work & Learning
+</h2>
+
+<p class="section-sub">
+Designed for individuals, workforces, and students who need practical guidance exactly when they need it.
+</p>
+
+<div class="audience-grid">
+
+<div class="audience-card">
+<h3>Individuals</h3>
+<p>
+Real-time problem solving. Receive contextual demonstrations and guidance instead of searching through multiple articles and prerecorded videos.
+</p>
+</div>
+
+<div class="audience-card">
+<h3>Corporate & Workforce</h3>
+<ul>
+<li>Upskilling</li>
+<li>Reskilling</li>
+<li>Onboarding</li>
+<li>Training</li>
+<li>Software Adoption</li>
+<li>Workflow Execution</li>
+</ul>
+</div>
+
+<div class="audience-card">
+<h3>Students</h3>
+<p>
+Get interactive guidance while learning and completing digital tasks.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="container">
+
+<h2 class="section-title">Mission & Vision</h2>
+
+<div class="mv-grid">
+
+<div class="mv-card">
+<h3>Mission</h3>
+<p>
+To make practical learning accessible to everyone by turning questions, goals, and curiosity into interactive experiences that help people understand, practice, and accomplish more.
+</p>
+</div>
+
+<div class="mv-card">
+<h3>Vision</h3>
+<p>
+To build a world where anyone, anywhere, can learn how to do almost anything through an intelligent, interactive guide without being held back by a lack of expertise, equipment, time, or access to traditional instruction.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="waitlist">
+<div class="container">
+
+<div class="waitlist">
+
+<h2>
+Join The Waitlist
+</h2>
+
+<p>
+Get notified when Exploner launches and be among the first users to experience contextual visual demonstrations powered by AI.
+</p>
+
+<a
+class="waitlist-btn"
+href="https://forms.gle/9tbQ8H23thZyGyeVA"
+target="_blank">
+Join Waitlist
+</a>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+<div class="container footer-inner">
+
+<div class="footer-logo">
+<img src="favicon.png" alt="">
+<span>Exploner</span>
+</div>
+
+<div>
+© 2026 Exploner
+</div>
+
+<div>
+<a href="mailto:solomon@exploner.tech">
+solomon@exploner.tech
+</a>
+</div>
+
+</div>
 </footer>
 
 </body>
