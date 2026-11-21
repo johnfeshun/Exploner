@@ -13,11 +13,11 @@ content="Exploner is a contextual visual demonstration interaction AI platform t
 
 <meta name="theme-color" content="#F5A623">
 
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=4">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=4">
-<link rel="icon" type="image/png" sizes="48x48" href="favicon.png?v=4">
-<link rel="shortcut icon" type="image/png" href="favicon.png?v=4">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=4">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=5">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=5">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png?v=5">
+<link rel="shortcut icon" type="image/png" href="favicon.png?v=5">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=5">
 
 <style>
 
@@ -31,6 +31,8 @@ content="Exploner is a contextual visual demonstration interaction AI platform t
 --bg:#FCFBF8;
 --white:#FFFFFF;
 --border:#E7E1D7;
+--success:#176B3A;
+--error:#8F241E;
 --shadow:0 20px 60px rgba(44,31,5,.08);
 }
 
@@ -55,7 +57,8 @@ overflow-x:hidden;
 
 body,
 button,
-input{
+input,
+textarea{
 font-family:Inter,Segoe UI,Arial,sans-serif;
 }
 
@@ -85,6 +88,8 @@ a{
 
 a:focus-visible,
 button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
 video:focus-visible,
 iframe:focus-visible{
 outline:3px solid rgba(245,166,35,.55);
@@ -235,7 +240,7 @@ padding:14px 24px;
 border-radius:999px;
 font-size:.92rem;
 font-weight:800;
-transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+transition:transform .2s ease,box-shadow .2s ease;
 }
 
 .btn:hover{
@@ -248,18 +253,10 @@ color:var(--white);
 box-shadow:0 12px 30px rgba(17,17,17,.16);
 }
 
-.btn-primary:hover{
-box-shadow:0 16px 35px rgba(17,17,17,.22);
-}
-
 .btn-secondary{
 background:var(--white);
 border:1px solid var(--border);
 color:var(--text);
-}
-
-.btn-secondary:hover{
-box-shadow:0 12px 28px rgba(44,31,5,.08);
 }
 
 .hero-panel{
@@ -428,10 +425,6 @@ overflow:hidden;
 background:#111;
 }
 
-.video-frame.vertical-video{
-background:#111;
-}
-
 .demo-card video,
 .video-frame iframe{
 width:100%;
@@ -442,10 +435,6 @@ background:#111;
 }
 
 .demo-card video{
-object-fit:contain;
-}
-
-.video-frame iframe{
 object-fit:contain;
 }
 
@@ -469,7 +458,7 @@ line-height:1.35;
 letter-spacing:-.02em;
 }
 
-/* PROBLEM AND STATISTICS */
+/* PROBLEM */
 
 .problem{
 background:var(--bg);
@@ -585,7 +574,6 @@ background:var(--white);
 border:1px solid var(--border);
 border-radius:24px;
 box-shadow:0 12px 35px rgba(44,31,5,.04);
-overflow:hidden;
 }
 
 .lab-number{
@@ -613,10 +601,6 @@ color:var(--muted);
 line-height:1.75;
 }
 
-.lab-feature strong{
-color:var(--text);
-}
-
 /* INTERACTIVE AI */
 
 .interactive-section{
@@ -633,10 +617,6 @@ align-items:center;
 
 .interactive-section .section-label{
 color:#5A3900;
-}
-
-.interactive-section .section-title{
-margin-bottom:0;
 }
 
 .interactive-copy{
@@ -748,7 +728,7 @@ border-radius:50%;
 background:var(--brand);
 }
 
-/* MISSION AND VISION */
+/* MISSION */
 
 .mission-section{
 background:var(--bg);
@@ -823,7 +803,7 @@ border-radius:50%;
 .waitlist-content{
 position:relative;
 z-index:1;
-max-width:790px;
+max-width:850px;
 }
 
 .waitlist h2{
@@ -833,31 +813,124 @@ letter-spacing:-.06em;
 margin-bottom:20px;
 }
 
-.waitlist p{
-max-width:700px;
+.waitlist-description{
+max-width:720px;
 font-size:1.05rem;
 line-height:1.75;
-margin-bottom:33px;
+margin-bottom:32px;
 }
 
-.waitlist-btn{
+.waitlist-form{
+width:100%;
+max-width:720px;
+display:grid;
+gap:16px;
+}
+
+.form-group{
+display:grid;
+gap:8px;
+}
+
+.form-group label{
+font-size:.88rem;
+font-weight:850;
+color:#392300;
+}
+
+.form-group input,
+.form-group textarea{
+width:100%;
+border:2px solid transparent;
+border-radius:16px;
+background:var(--white);
+color:var(--text);
+font-size:1rem;
+line-height:1.5;
+box-shadow:0 12px 30px rgba(78,48,0,.1);
+transition:border-color .2s ease,box-shadow .2s ease;
+}
+
+.form-group input{
+min-height:56px;
+padding:14px 17px;
+}
+
+.form-group textarea{
+min-height:135px;
+padding:15px 17px;
+resize:vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+outline:none;
+border-color:var(--dark);
+box-shadow:0 15px 36px rgba(78,48,0,.16);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+color:#898176;
+}
+
+.waitlist-submit{
 display:inline-flex;
 align-items:center;
 justify-content:center;
 gap:10px;
-min-height:54px;
-padding:15px 26px;
+width:max-content;
+min-height:55px;
+padding:15px 28px;
+border:0;
 border-radius:999px;
 background:var(--dark);
 color:var(--white);
+font-size:.96rem;
 font-weight:850;
+cursor:pointer;
 box-shadow:0 13px 30px rgba(17,17,17,.18);
-transition:transform .2s ease,box-shadow .2s ease;
+transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease;
 }
 
-.waitlist-btn:hover{
+.waitlist-submit:hover{
 transform:translateY(-2px);
 box-shadow:0 17px 36px rgba(17,17,17,.26);
+}
+
+.waitlist-submit:disabled{
+cursor:wait;
+opacity:.7;
+transform:none;
+}
+
+.form-message{
+display:none;
+padding:13px 15px;
+border-radius:13px;
+font-size:.9rem;
+font-weight:750;
+line-height:1.5;
+}
+
+.form-message.success{
+display:block;
+background:rgba(255,255,255,.55);
+color:var(--success);
+border:1px solid rgba(23,107,58,.22);
+}
+
+.form-message.error{
+display:block;
+background:rgba(255,255,255,.55);
+color:var(--error);
+border:1px solid rgba(143,36,30,.22);
+}
+
+.form-privacy{
+font-size:.78rem;
+line-height:1.55;
+color:#614000;
 }
 
 /* CONTACT */
@@ -904,12 +977,6 @@ font-size:1rem;
 font-weight:900;
 white-space:nowrap;
 box-shadow:0 12px 30px rgba(17,17,17,.16);
-transition:transform .2s ease,box-shadow .2s ease;
-}
-
-.contact-email:hover{
-transform:translateY(-2px);
-box-shadow:0 16px 36px rgba(17,17,17,.24);
 }
 
 /* FOOTER */
@@ -995,28 +1062,12 @@ gap:38px;
 min-height:auto;
 }
 
-.hero-card{
-min-height:390px;
-}
-
-.lab-header{
-gap:14px;
-}
-
 .stats-grid{
 grid-template-columns:repeat(2,1fr);
 }
 
 .audience-grid{
 grid-template-columns:1fr;
-}
-
-.audience-card{
-min-height:auto;
-}
-
-.audience-card h3{
-margin-top:38px;
 }
 
 .contact-card{
@@ -1036,18 +1087,8 @@ width:min(100% - 26px,1160px);
 height:70px;
 }
 
-.logo img{
-width:36px;
-height:36px;
-}
-
 .nav-links a:not(.nav-btn){
 display:none;
-}
-
-.nav-links .nav-btn{
-padding:10px 14px;
-font-size:.8rem;
 }
 
 .hero{
@@ -1062,11 +1103,6 @@ font-size:clamp(3.25rem,17vw,5rem);
 .hero-card{
 min-height:350px;
 padding:42px 24px;
-}
-
-.hero-card img{
-width:100px;
-height:100px;
 }
 
 .demo-grid,
@@ -1086,25 +1122,17 @@ max-width:520px;
 margin-inline:auto;
 }
 
-.stat{
-min-height:190px;
-}
-
 .lab-feature{
 min-height:auto;
-}
-
-.lab-number{
-margin-bottom:35px;
-}
-
-.interactive-layout{
-gap:35px;
 }
 
 .waitlist{
 padding:45px 25px;
 border-radius:24px;
+}
+
+.waitlist-submit{
+width:100%;
 }
 
 .contact-card{
@@ -1115,7 +1143,6 @@ padding:29px 23px;
 width:100%;
 white-space:normal;
 text-align:center;
-font-size:.92rem;
 }
 
 .footer-inner{
@@ -1144,14 +1171,6 @@ width:100%;
 font-size:2.45rem;
 }
 
-.demo-info{
-padding:15px 16px 17px;
-}
-
-.waitlist-btn{
-width:100%;
-}
-
 }
 
 </style>
@@ -1163,7 +1182,7 @@ width:100%;
 <div class="container nav-inner">
 
 <a class="logo" href="#top" aria-label="Exploner home">
-<img src="favicon.png?v=4" alt="Exploner logo">
+<img src="favicon.png?v=5" alt="Exploner logo">
 <span>Exploner</span>
 </a>
 
@@ -1185,9 +1204,7 @@ width:100%;
 
 <div class="hero-content">
 
-<div class="badge">
-Coming Soon
-</div>
+<div class="badge">Coming Soon</div>
 
 <h1>
 Turn
@@ -1201,16 +1218,8 @@ Exploner is a contextual visual demonstration interaction AI platform that turns
 </p>
 
 <div class="hero-buttons">
-
-<a href="#waitlist" class="btn btn-primary">
-Join Waitlist
-<span aria-hidden="true">→</span>
-</a>
-
-<a href="#demos" class="btn btn-secondary">
-Watch Demos
-</a>
-
+<a href="#waitlist" class="btn btn-primary">Join Waitlist →</a>
+<a href="#demos" class="btn btn-secondary">Watch Demos</a>
 </div>
 
 </div>
@@ -1219,19 +1228,15 @@ Watch Demos
 
 <div class="hero-card">
 
-<img src="favicon.png?v=4" alt="Exploner logo">
+<img src="favicon.png?v=5" alt="Exploner logo">
 
-<h2>
-Interactive guidance built around your intent.
-</h2>
+<h2>Interactive guidance built around your intent.</h2>
 
 <p>
 Ask questions, request demonstrations, seek clarification, and interact with Exploner AI throughout a live learning or problem-solving session.
 </p>
 
-<div class="live-pill">
-Live Interactive AI
-</div>
+<div class="live-pill">Live Interactive AI</div>
 
 </div>
 
@@ -1243,13 +1248,9 @@ Live Interactive AI
 <section id="demos" class="demos-section">
 <div class="container">
 
-<span class="section-label">
-Product demonstrations
-</span>
+<span class="section-label">Product demonstrations</span>
 
-<h2 class="section-title">
-See Exploner In Action
-</h2>
+<h2 class="section-title">See Exploner In Action</h2>
 
 <p class="section-sub">
 Explore demonstrations showing how Exploner can transform user intent into contextual visual guidance, interactive learning, and practical action.
@@ -1291,10 +1292,10 @@ Your browser does not support the video element.
 
 <article class="demo-card">
 
-<div class="video-frame vertical-video">
+<div class="video-frame">
 <iframe
 src="https://1drv.ms/v/c/2b27fab909ed3401/IQRqathquY_ITL0hCvIiC764AYS5-6zq16lID7S0nLjx03Q"
-title="Interactive Virtual Laboratory Demonstration"
+title="Interactive Virtual Laboratory"
 loading="lazy"
 scrolling="no"
 allow="autoplay; fullscreen; picture-in-picture"
@@ -1319,13 +1320,9 @@ allowfullscreen
 
 <div class="problem-intro">
 
-<span class="section-label">
-The problem
-</span>
+<span class="section-label">The problem</span>
 
-<h2 class="section-title">
-The Cost of Digital Friction
-</h2>
+<h2 class="section-title">The Cost of Digital Friction</h2>
 
 <p class="problem-text">
 When people get stuck or confused while trying to accomplish a task, they turn online for answers. Yet text instructions force users to translate words into actions inside unfamiliar interfaces, while prerecorded tutorials are static, may not address the user's immediate question, and often force people to search through lengthy videos for one simple answer.
@@ -1340,9 +1337,7 @@ When people get stuck or confused while trying to accomplish a task, they turn o
 <h3>25%</h3>
 <p>of work time is wasted searching for answers.</p>
 </div>
-<span class="stat-source">
-Atlassian, 2025
-</span>
+<span class="stat-source">Atlassian, 2025</span>
 </article>
 
 <article class="stat">
@@ -1350,9 +1345,7 @@ Atlassian, 2025
 <h3>2.4B</h3>
 <p>hours are lost annually across the Fortune 500 while people search for answers.</p>
 </div>
-<span class="stat-source">
-Atlassian, 2025
-</span>
+<span class="stat-source">Atlassian, 2025</span>
 </article>
 
 <article class="stat">
@@ -1360,9 +1353,7 @@ Atlassian, 2025
 <h3>36 Days</h3>
 <p>per employee are wasted annually dealing with technology frustrations.</p>
 </div>
-<span class="stat-source">
-WalkMe, State of Digital Adoption 2025
-</span>
+<span class="stat-source">WalkMe, State of Digital Adoption 2025</span>
 </article>
 
 <article class="stat">
@@ -1370,9 +1361,7 @@ WalkMe, State of Digital Adoption 2025
 <h3>55%</h3>
 <p>of U.S. employees report frustration caused by digital friction.</p>
 </div>
-<span class="stat-source">
-TeamViewer, 2025
-</span>
+<span class="stat-source">TeamViewer, 2025</span>
 </article>
 
 <article class="stat">
@@ -1380,9 +1369,7 @@ TeamViewer, 2025
 <h3>51%</h3>
 <p>of U.S. employees say digital friction contributes to burnout.</p>
 </div>
-<span class="stat-source">
-TeamViewer, 2025
-</span>
+<span class="stat-source">TeamViewer, 2025</span>
 </article>
 
 <article class="stat">
@@ -1390,9 +1377,7 @@ TeamViewer, 2025
 <h3>$10B+</h3>
 <p>is the projected value of the virtual-lab market by 2033.</p>
 </div>
-<span class="stat-source">
-Verified Market Research, 2026
-</span>
+<span class="stat-source">Verified Market Research, 2026</span>
 </article>
 
 </div>
@@ -1403,9 +1388,7 @@ Verified Market Research, 2026
 <section class="intent">
 <div class="container">
 
-<span class="section-label">
-The Exploner approach
-</span>
+<span class="section-label">The Exploner approach</span>
 
 <h2>
 Exploner AI Turns
@@ -1425,15 +1408,8 @@ Instead of relying only on text instructions or static prerecorded tutorials, Ex
 <div class="lab-header">
 
 <div>
-
-<span class="section-label">
-Exploner virtual-lab technology
-</span>
-
-<h2 class="section-title">
-A Laboratory That Responds to the Learner
-</h2>
-
+<span class="section-label">Exploner virtual-lab technology</span>
+<h2 class="section-title">A Laboratory That Responds to the Learner</h2>
 </div>
 
 <p class="section-sub">
@@ -1445,67 +1421,35 @@ Exploner's virtual lab combines adaptive experimental environments with a 3D AI 
 <div class="lab-grid">
 
 <article class="lab-feature">
-
-<div class="lab-number">
-01
-</div>
-
-<h3>
-3D AI Lab Technician
-</h3>
-
+<div class="lab-number">01</div>
+<h3>3D AI Lab Technician</h3>
 <p>
 A 3D laboratory technician can demonstrate, explain, teach, and perform live laboratory experiments while guiding the user through each procedure.
 </p>
-
 </article>
 
 <article class="lab-feature">
-
-<div class="lab-number">
-02
-</div>
-
-<h3>
-Live Questions and Interaction
-</h3>
-
+<div class="lab-number">02</div>
+<h3>Live Questions and Interaction</h3>
 <p>
 Users can interact with the AI technician during the experiment, ask questions, request clarification, and ask for a procedure or concept to be demonstrated again.
 </p>
-
 </article>
 
 <article class="lab-feature">
-
-<div class="lab-number">
-03
-</div>
-
-<h3>
-Adaptive Experimental Setups
-</h3>
-
+<div class="lab-number">03</div>
+<h3>Adaptive Experimental Setups</h3>
 <p>
-Exploner's virtual lab is <strong>not limited to static experimental setups.</strong> The environment and setup can be made to fit the user's objectives, learning needs, questions, and intended experiment.
+Exploner's virtual lab is not limited to static experimental setups. The environment and setup can be made to fit the user's objectives, learning needs, questions, and intended experiment.
 </p>
-
 </article>
 
 <article class="lab-feature">
-
-<div class="lab-number">
-04
-</div>
-
-<h3>
-Learning Through Participation
-</h3>
-
+<div class="lab-number">04</div>
+<h3>Learning Through Participation</h3>
 <p>
 Users are not limited to passively watching an experiment. The experience supports exploration, guided practice, live questioning, and active participation throughout the session.
 </p>
-
 </article>
 
 </div>
@@ -1517,15 +1461,8 @@ Users are not limited to passively watching an experiment. The experience suppor
 <div class="container interactive-layout">
 
 <div>
-
-<span class="section-label">
-Interactive during live sessions
-</span>
-
-<h2 class="section-title">
-Not Just a Video. A Responsive Experience.
-</h2>
-
+<span class="section-label">Interactive during live sessions</span>
+<h2 class="section-title">Not Just a Video. A Responsive Experience.</h2>
 </div>
 
 <div class="interactive-copy">
@@ -1566,13 +1503,9 @@ Explore different approaches based on the user's objective.
 <section id="audiences" class="dark">
 <div class="container">
 
-<span class="section-label">
-Built for digital work and learning
-</span>
+<span class="section-label">Built for digital work and learning</span>
 
-<h2 class="section-title">
-Practical Guidance for the Moment It Is Needed
-</h2>
+<h2 class="section-title">Practical Guidance for the Moment It Is Needed</h2>
 
 <p class="section-sub">
 Exploner supports individuals, corporate workforces, and students by turning digital tasks and learning objectives into contextual interactive experiences.
@@ -1581,31 +1514,16 @@ Exploner supports individuals, corporate workforces, and students by turning dig
 <div class="audience-grid">
 
 <article class="audience-card">
-
-<span class="audience-number">
-01 / Individuals
-</span>
-
-<h3>
-Real-Time Problem Solving
-</h3>
-
+<span class="audience-number">01 / Individuals</span>
+<h3>Real-Time Problem Solving</h3>
 <p>
 Users receive contextual demonstrations and guidance instead of searching through multiple articles and prerecorded videos.
 </p>
-
 </article>
 
 <article class="audience-card">
-
-<span class="audience-number">
-02 / Corporate &amp; Workforce
-</span>
-
-<h3>
-Training and Digital Adoption
-</h3>
-
+<span class="audience-number">02 / Corporate &amp; Workforce</span>
+<h3>Training and Digital Adoption</h3>
 <ul>
 <li>Software upskilling</li>
 <li>Software reskilling</li>
@@ -1614,23 +1532,14 @@ Training and Digital Adoption
 <li>Software adoption</li>
 <li>Workflow execution</li>
 </ul>
-
 </article>
 
 <article class="audience-card">
-
-<span class="audience-number">
-03 / Students
-</span>
-
-<h3>
-Interactive Learning
-</h3>
-
+<span class="audience-number">03 / Students</span>
+<h3>Interactive Learning</h3>
 <p>
 Students receive interactive guidance while learning and completing digital tasks, helping to connect explanations with practical action.
 </p>
-
 </article>
 
 </div>
@@ -1641,13 +1550,9 @@ Students receive interactive guidance while learning and completing digital task
 <section class="mission-section">
 <div class="container">
 
-<span class="section-label">
-What drives Exploner
-</span>
+<span class="section-label">What drives Exploner</span>
 
-<h2 class="section-title">
-Mission and Vision
-</h2>
+<h2 class="section-title">Mission and Vision</h2>
 
 <p class="section-sub">
 Exploner is being developed to make practical learning more accessible and to reduce the barriers between a person's intent and ability to act.
@@ -1656,43 +1561,23 @@ Exploner is being developed to make practical learning more accessible and to re
 <div class="mv-grid">
 
 <article class="mv-card">
-
 <div>
-
-<span class="mv-tag">
-Mission
-</span>
-
-<h3>
-Make practical learning accessible.
-</h3>
-
+<span class="mv-tag">Mission</span>
+<h3>Make practical learning accessible.</h3>
 </div>
-
 <p>
 To make practical learning accessible to everyone by turning questions, goals, and curiosity into interactive experiences that help people understand, practice, and accomplish more.
 </p>
-
 </article>
 
 <article class="mv-card">
-
 <div>
-
-<span class="mv-tag">
-Vision
-</span>
-
-<h3>
-Make almost anything learnable.
-</h3>
-
+<span class="mv-tag">Vision</span>
+<h3>Make almost anything learnable.</h3>
 </div>
-
 <p>
 To build a world where anyone, anywhere, can learn how to do almost anything through an intelligent, interactive guide without being held back by a lack of expertise, equipment, time, or access to traditional instruction.
 </p>
-
 </article>
 
 </div>
@@ -1707,23 +1592,72 @@ To build a world where anyone, anywhere, can learn how to do almost anything thr
 
 <div class="waitlist-content">
 
-<h2>
-Join the Exploner Waitlist
-</h2>
+<h2>Join the Exploner Waitlist</h2>
 
-<p>
-Get notified when Exploner launches and be among the first users invited to experience contextual visual demonstrations, interactive AI sessions, and adaptive virtual-lab technology.
+<p class="waitlist-description">
+Enter your email and leave an optional comment. Your email will be submitted directly to the Exploner waitlist without opening the Google Form page.
 </p>
 
-<a
-class="waitlist-btn"
-href="https://forms.gle/9tbQ8H23thZyGyeVA"
-target="_blank"
-rel="noopener noreferrer"
+<form
+id="explonerWaitlistForm"
+class="waitlist-form"
+action="https://docs.google.com/forms/d/e/1FAIpQLSe7MnqcOX0fbbLOkeER3iIz-I44xUeZKZQMZ1omgtsmB9ryZQ/formResponse"
+method="POST"
+target="waitlistSubmissionFrame"
+>
+
+<div class="form-group">
+<label for="waitlistEmail">Email address</label>
+
+<input
+id="waitlistEmail"
+type="email"
+name="entry.377011991"
+placeholder="you@example.com"
+autocomplete="email"
+required
+>
+</div>
+
+<div class="form-group">
+<label for="waitlistComment">Comments</label>
+
+<textarea
+id="waitlistComment"
+name="entry.COMMENTS_FIELD_ID"
+placeholder="Tell us what interests you about Exploner or how you would like to use it."
+maxlength="1500"
+></textarea>
+</div>
+
+<button
+id="waitlistSubmitButton"
+class="waitlist-submit"
+type="submit"
 >
 Join Waitlist
 <span aria-hidden="true">→</span>
-</a>
+</button>
+
+<div
+id="waitlistMessage"
+class="form-message"
+role="status"
+aria-live="polite"
+></div>
+
+<p class="form-privacy">
+Your information will be submitted to the Exploner Google Form and stored in its connected Google Sheet.
+</p>
+
+</form>
+
+<iframe
+name="waitlistSubmissionFrame"
+id="waitlistSubmissionFrame"
+title="Waitlist submission"
+style="display:none;"
+></iframe>
 
 </div>
 
@@ -1738,15 +1672,10 @@ Join Waitlist
 <div class="contact-card">
 
 <div class="contact-copy">
-
-<h2>
-Fundraising Inquiries and Partnerships
-</h2>
-
+<h2>Fundraising Inquiries and Partnerships</h2>
 <p>
 Contact the Exploner team directly to discuss fundraising, investment, collaboration, or partnership opportunities.
 </p>
-
 </div>
 
 <a
@@ -1754,10 +1683,8 @@ class="contact-email"
 href="https://mail.google.com/mail/?view=cm&fs=1&to=solomon%40exploner.tech"
 target="_blank"
 rel="noopener noreferrer"
-aria-label="Compose an email to solomon@exploner.tech in Gmail"
 >
-solomon@exploner.tech
-<span aria-hidden="true">↗</span>
+solomon@exploner.tech ↗
 </a>
 
 </div>
@@ -1771,7 +1698,7 @@ solomon@exploner.tech
 <div class="container footer-inner">
 
 <a class="footer-logo" href="#top">
-<img src="favicon.png?v=4" alt="Exploner logo">
+<img src="favicon.png?v=5" alt="Exploner logo">
 <span>Exploner</span>
 </a>
 
@@ -1790,6 +1717,77 @@ solomon@exploner.tech
 
 </div>
 </footer>
+
+<script>
+
+const waitlistForm = document.getElementById("explonerWaitlistForm");
+const waitlistEmail = document.getElementById("waitlistEmail");
+const waitlistComment = document.getElementById("waitlistComment");
+const waitlistButton = document.getElementById("waitlistSubmitButton");
+const waitlistMessage = document.getElementById("waitlistMessage");
+const submissionFrame = document.getElementById("waitlistSubmissionFrame");
+
+let formIsSubmitting = false;
+
+waitlistForm.addEventListener("submit", function(event){
+
+const emailValue = waitlistEmail.value.trim();
+
+if(!emailValue){
+event.preventDefault();
+showWaitlistMessage(
+"Please enter your email address.",
+"error"
+);
+waitlistEmail.focus();
+return;
+}
+
+if(!waitlistEmail.checkValidity()){
+event.preventDefault();
+showWaitlistMessage(
+"Please enter a valid email address.",
+"error"
+);
+waitlistEmail.focus();
+return;
+}
+
+formIsSubmitting = true;
+waitlistButton.disabled = true;
+waitlistButton.innerHTML = "Submitting...";
+waitlistMessage.className = "form-message";
+waitlistMessage.textContent = "";
+
+});
+
+submissionFrame.addEventListener("load", function(){
+
+if(!formIsSubmitting){
+return;
+}
+
+formIsSubmitting = false;
+
+showWaitlistMessage(
+"Thank you. Your waitlist submission has been received.",
+"success"
+);
+
+waitlistForm.reset();
+waitlistButton.disabled = false;
+waitlistButton.innerHTML = 'Join Waitlist <span aria-hidden="true">→</span>';
+
+});
+
+function showWaitlistMessage(message,type){
+
+waitlistMessage.textContent = message;
+waitlistMessage.className = "form-message " + type;
+
+}
+
+</script>
 
 </body>
 </html>
