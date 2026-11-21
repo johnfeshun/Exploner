@@ -13,11 +13,11 @@ content="Exploner is a contextual visual demonstration interaction AI platform t
 
 <meta name="theme-color" content="#F5A623">
 
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=6">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=6">
-<link rel="icon" type="image/png" sizes="48x48" href="favicon.png?v=6">
-<link rel="shortcut icon" type="image/png" href="favicon.png?v=6">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=6">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=7">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=7">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png?v=7">
+<link rel="shortcut icon" type="image/png" href="favicon.png?v=7">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=7">
 
 <style>
 
@@ -31,8 +31,6 @@ content="Exploner is a contextual visual demonstration interaction AI platform t
 --bg:#FCFBF8;
 --white:#FFFFFF;
 --border:#E7E1D7;
---success:#155E36;
---error:#8A201A;
 --shadow:0 20px 60px rgba(44,31,5,.08);
 }
 
@@ -87,7 +85,6 @@ a{
 
 a:focus-visible,
 button:focus-visible,
-input:focus-visible,
 video:focus-visible,
 iframe:focus-visible{
 outline:3px solid rgba(245,166,35,.55);
@@ -801,7 +798,7 @@ pointer-events:none;
 .waitlist-content{
 position:relative;
 z-index:1;
-max-width:790px;
+max-width:900px;
 }
 
 .waitlist h2{
@@ -812,95 +809,29 @@ margin-bottom:20px;
 }
 
 .waitlist-description{
-max-width:690px;
+max-width:700px;
 font-size:1.05rem;
 line-height:1.75;
 margin-bottom:30px;
 }
 
-.waitlist-form{
+.google-form-shell{
 width:100%;
-max-width:650px;
-display:grid;
-gap:14px;
-}
-
-.email-label{
-font-size:.9rem;
-font-weight:850;
-color:#392300;
-}
-
-.email-row{
-display:flex;
-gap:10px;
-padding:8px;
+max-width:700px;
+padding:10px;
 background:var(--white);
-border-radius:18px;
-box-shadow:0 14px 35px rgba(78,48,0,.15);
+border-radius:24px;
+box-shadow:0 18px 48px rgba(78,48,0,.18);
+overflow:hidden;
 }
 
-.email-row input{
-flex:1;
-min-width:0;
-height:54px;
-padding:0 15px;
-border:0;
-outline:0;
-border-radius:12px;
-background:transparent;
-color:var(--text);
-font-size:1rem;
-}
-
-.email-row input::placeholder{
-color:#847C72;
-}
-
-.waitlist-submit{
-min-height:54px;
-padding:13px 24px;
-border:0;
-border-radius:13px;
-background:var(--dark);
-color:var(--white);
-font-size:.94rem;
-font-weight:850;
-cursor:pointer;
-white-space:nowrap;
-transition:transform .2s ease,opacity .2s ease;
-}
-
-.waitlist-submit:hover{
-transform:translateY(-1px);
-}
-
-.waitlist-submit:disabled{
-opacity:.65;
-cursor:wait;
-transform:none;
-}
-
-.form-message{
-display:none;
-padding:13px 15px;
-border-radius:13px;
-background:rgba(255,255,255,.6);
-font-size:.9rem;
-font-weight:800;
-line-height:1.5;
-}
-
-.form-message.success{
+.google-form-frame{
 display:block;
-color:var(--success);
-border:1px solid rgba(21,94,54,.25);
-}
-
-.form-message.error{
-display:block;
-color:var(--error);
-border:1px solid rgba(138,32,26,.25);
+width:100%;
+height:588px;
+border:0;
+border-radius:17px;
+background:var(--white);
 }
 
 /* CONTACT */
@@ -1097,16 +1028,24 @@ min-height:auto;
 }
 
 .waitlist{
-padding:45px 25px;
+padding:45px 18px;
 border-radius:24px;
 }
 
-.email-row{
-flex-direction:column;
+.waitlist h2,
+.waitlist-description{
+padding-left:7px;
+padding-right:7px;
 }
 
-.waitlist-submit{
-width:100%;
+.google-form-shell{
+padding:5px;
+border-radius:18px;
+}
+
+.google-form-frame{
+height:620px;
+border-radius:14px;
 }
 
 .contact-card{
@@ -1145,6 +1084,10 @@ width:100%;
 font-size:2.45rem;
 }
 
+.google-form-frame{
+height:650px;
+}
+
 }
 
 </style>
@@ -1156,7 +1099,7 @@ font-size:2.45rem;
 <div class="container nav-inner">
 
 <a class="logo" href="#top" aria-label="Exploner home">
-<img src="favicon.png?v=6" alt="Exploner logo">
+<img src="favicon.png?v=7" alt="Exploner logo">
 <span>Exploner</span>
 </a>
 
@@ -1202,7 +1145,7 @@ Exploner is a contextual visual demonstration interaction AI platform that turns
 
 <div class="hero-card">
 
-<img src="favicon.png?v=6" alt="Exploner logo">
+<img src="favicon.png?v=7" alt="Exploner logo">
 
 <h2>Interactive guidance built around your intent.</h2>
 
@@ -1572,54 +1515,21 @@ To build a world where anyone, anywhere, can learn how to do almost anything thr
 Be among the first to experience contextual visual demonstrations, interactive AI sessions, and adaptive virtual-lab technology.
 </p>
 
-<form
-id="explonerWaitlistForm"
-class="waitlist-form"
-action="https://docs.google.com/forms/d/e/1FAIpQLSe7MnqcOX0fbbLOkeER3iIz-I44xUeZKZQMZ1omgtsmB9ryZQ/formResponse"
-method="POST"
-target="explonerWaitlistFrame"
->
-
-<label class="email-label" for="waitlistEmail">
-Email address
-</label>
-
-<div class="email-row">
-
-<input
-id="waitlistEmail"
-type="email"
-name="entry.377011991"
-placeholder="Enter your email address"
-autocomplete="email"
-required
->
-
-<button
-id="waitlistSubmitButton"
-class="waitlist-submit"
-type="submit"
->
-Join Waitlist
-</button>
-
-</div>
-
-<div
-id="waitlistMessage"
-class="form-message"
-role="status"
-aria-live="polite"
-></div>
-
-</form>
+<div class="google-form-shell">
 
 <iframe
-id="explonerWaitlistFrame"
-name="explonerWaitlistFrame"
-title="Waitlist submission"
-style="display:none;"
-></iframe>
+class="google-form-frame"
+src="https://docs.google.com/forms/d/e/1FAIpQLSe7MnqcOX0fbbLOkeER3iIz-I44xUeZKZQMZ1omgtsmB9ryZQ/viewform?embedded=true"
+title="Join the Exploner waitlist"
+loading="lazy"
+frameborder="0"
+marginheight="0"
+marginwidth="0"
+>
+Loading…
+</iframe>
+
+</div>
 
 </div>
 
@@ -1660,7 +1570,7 @@ solomon@exploner.tech ↗
 <div class="container footer-inner">
 
 <a class="footer-logo" href="#top">
-<img src="favicon.png?v=6" alt="Exploner logo">
+<img src="favicon.png?v=7" alt="Exploner logo">
 <span>Exploner</span>
 </a>
 
@@ -1679,80 +1589,6 @@ solomon@exploner.tech
 
 </div>
 </footer>
-
-<script>
-
-const waitlistForm = document.getElementById("explonerWaitlistForm");
-const waitlistEmail = document.getElementById("waitlistEmail");
-const waitlistSubmitButton = document.getElementById("waitlistSubmitButton");
-const waitlistMessage = document.getElementById("waitlistMessage");
-const waitlistFrame = document.getElementById("explonerWaitlistFrame");
-
-let waitlistSubmitted = false;
-let waitlistSubmissionTimer = null;
-
-function showWaitlistMessage(text, type){
-waitlistMessage.textContent = text;
-waitlistMessage.className = "form-message " + type;
-}
-
-waitlistForm.addEventListener("submit", function(event){
-
-const email = waitlistEmail.value.trim();
-
-waitlistMessage.textContent = "";
-waitlistMessage.className = "form-message";
-
-if(!email || !waitlistEmail.checkValidity()){
-event.preventDefault();
-showWaitlistMessage("Please enter a valid email address.", "error");
-waitlistEmail.focus();
-return;
-}
-
-waitlistSubmitted = true;
-waitlistSubmitButton.disabled = true;
-waitlistSubmitButton.textContent = "Joining...";
-
-clearTimeout(waitlistSubmissionTimer);
-
-waitlistSubmissionTimer = setTimeout(function(){
-
-if(waitlistSubmitted){
-waitlistSubmitted = false;
-waitlistSubmitButton.disabled = false;
-waitlistSubmitButton.textContent = "Join Waitlist";
-showWaitlistMessage(
-"We could not confirm your submission. Please try again.",
-"error"
-);
-}
-
-}, 12000);
-
-});
-
-waitlistFrame.addEventListener("load", function(){
-
-if(!waitlistSubmitted){
-return;
-}
-
-waitlistSubmitted = false;
-clearTimeout(waitlistSubmissionTimer);
-
-waitlistForm.reset();
-waitlistSubmitButton.disabled = false;
-waitlistSubmitButton.textContent = "Join Waitlist";
-
-showWaitlistMessage(
-"You are now on the Exploner waitlist.",
-"success"
-);
-
-});
-
-</script>
 
 </body>
 </html>
