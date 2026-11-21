@@ -13,11 +13,11 @@ content="Exploner is a contextual visual demonstration interaction AI platform t
 
 <meta name="theme-color" content="#F5A623">
 
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=5">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=5">
-<link rel="icon" type="image/png" sizes="48x48" href="favicon.png?v=5">
-<link rel="shortcut icon" type="image/png" href="favicon.png?v=5">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=5">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png?v=6">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=6">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png?v=6">
+<link rel="shortcut icon" type="image/png" href="favicon.png?v=6">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon.png?v=6">
 
 <style>
 
@@ -31,8 +31,8 @@ content="Exploner is a contextual visual demonstration interaction AI platform t
 --bg:#FCFBF8;
 --white:#FFFFFF;
 --border:#E7E1D7;
---success:#176B3A;
---error:#8F241E;
+--success:#155E36;
+--error:#8A201A;
 --shadow:0 20px 60px rgba(44,31,5,.08);
 }
 
@@ -57,8 +57,7 @@ overflow-x:hidden;
 
 body,
 button,
-input,
-textarea{
+input{
 font-family:Inter,Segoe UI,Arial,sans-serif;
 }
 
@@ -89,7 +88,6 @@ a{
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible,
 video:focus-visible,
 iframe:focus-visible{
 outline:3px solid rgba(245,166,35,.55);
@@ -360,7 +358,7 @@ border-radius:50%;
 background:var(--brand);
 }
 
-/* SHARED SECTION STYLES */
+/* SHARED */
 
 .section-label{
 display:inline-block;
@@ -567,7 +565,6 @@ gap:20px;
 }
 
 .lab-feature{
-position:relative;
 min-height:280px;
 padding:36px;
 background:var(--white);
@@ -601,7 +598,7 @@ color:var(--muted);
 line-height:1.75;
 }
 
-/* INTERACTIVE AI */
+/* INTERACTIVE */
 
 .interactive-section{
 background:var(--brand);
@@ -798,12 +795,13 @@ right:-170px;
 top:-190px;
 border:70px solid rgba(255,255,255,.2);
 border-radius:50%;
+pointer-events:none;
 }
 
 .waitlist-content{
 position:relative;
 z-index:1;
-max-width:850px;
+max-width:790px;
 }
 
 .waitlist h2{
@@ -814,93 +812,72 @@ margin-bottom:20px;
 }
 
 .waitlist-description{
-max-width:720px;
+max-width:690px;
 font-size:1.05rem;
 line-height:1.75;
-margin-bottom:32px;
+margin-bottom:30px;
 }
 
 .waitlist-form{
 width:100%;
-max-width:720px;
+max-width:650px;
 display:grid;
-gap:16px;
+gap:14px;
 }
 
-.form-group{
-display:grid;
-gap:8px;
-}
-
-.form-group label{
-font-size:.88rem;
+.email-label{
+font-size:.9rem;
 font-weight:850;
 color:#392300;
 }
 
-.form-group input,
-.form-group textarea{
-width:100%;
-border:2px solid transparent;
-border-radius:16px;
+.email-row{
+display:flex;
+gap:10px;
+padding:8px;
 background:var(--white);
+border-radius:18px;
+box-shadow:0 14px 35px rgba(78,48,0,.15);
+}
+
+.email-row input{
+flex:1;
+min-width:0;
+height:54px;
+padding:0 15px;
+border:0;
+outline:0;
+border-radius:12px;
+background:transparent;
 color:var(--text);
 font-size:1rem;
-line-height:1.5;
-box-shadow:0 12px 30px rgba(78,48,0,.1);
-transition:border-color .2s ease,box-shadow .2s ease;
 }
 
-.form-group input{
-min-height:56px;
-padding:14px 17px;
-}
-
-.form-group textarea{
-min-height:135px;
-padding:15px 17px;
-resize:vertical;
-}
-
-.form-group input:focus,
-.form-group textarea:focus{
-outline:none;
-border-color:var(--dark);
-box-shadow:0 15px 36px rgba(78,48,0,.16);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder{
-color:#898176;
+.email-row input::placeholder{
+color:#847C72;
 }
 
 .waitlist-submit{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-width:max-content;
-min-height:55px;
-padding:15px 28px;
+min-height:54px;
+padding:13px 24px;
 border:0;
-border-radius:999px;
+border-radius:13px;
 background:var(--dark);
 color:var(--white);
-font-size:.96rem;
+font-size:.94rem;
 font-weight:850;
 cursor:pointer;
-box-shadow:0 13px 30px rgba(17,17,17,.18);
-transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease;
+white-space:nowrap;
+transition:transform .2s ease,opacity .2s ease;
 }
 
 .waitlist-submit:hover{
-transform:translateY(-2px);
-box-shadow:0 17px 36px rgba(17,17,17,.26);
+transform:translateY(-1px);
 }
 
 .waitlist-submit:disabled{
+opacity:.65;
 cursor:wait;
-opacity:.7;
 transform:none;
 }
 
@@ -908,29 +885,22 @@ transform:none;
 display:none;
 padding:13px 15px;
 border-radius:13px;
+background:rgba(255,255,255,.6);
 font-size:.9rem;
-font-weight:750;
+font-weight:800;
 line-height:1.5;
 }
 
 .form-message.success{
 display:block;
-background:rgba(255,255,255,.55);
 color:var(--success);
-border:1px solid rgba(23,107,58,.22);
+border:1px solid rgba(21,94,54,.25);
 }
 
 .form-message.error{
 display:block;
-background:rgba(255,255,255,.55);
 color:var(--error);
-border:1px solid rgba(143,36,30,.22);
-}
-
-.form-privacy{
-font-size:.78rem;
-line-height:1.55;
-color:#614000;
+border:1px solid rgba(138,32,26,.25);
 }
 
 /* CONTACT */
@@ -1131,6 +1101,10 @@ padding:45px 25px;
 border-radius:24px;
 }
 
+.email-row{
+flex-direction:column;
+}
+
 .waitlist-submit{
 width:100%;
 }
@@ -1182,7 +1156,7 @@ font-size:2.45rem;
 <div class="container nav-inner">
 
 <a class="logo" href="#top" aria-label="Exploner home">
-<img src="favicon.png?v=5" alt="Exploner logo">
+<img src="favicon.png?v=6" alt="Exploner logo">
 <span>Exploner</span>
 </a>
 
@@ -1228,7 +1202,7 @@ Exploner is a contextual visual demonstration interaction AI platform that turns
 
 <div class="hero-card">
 
-<img src="favicon.png?v=5" alt="Exploner logo">
+<img src="favicon.png?v=6" alt="Exploner logo">
 
 <h2>Interactive guidance built around your intent.</h2>
 
@@ -1595,7 +1569,7 @@ To build a world where anyone, anywhere, can learn how to do almost anything thr
 <h2>Join the Exploner Waitlist</h2>
 
 <p class="waitlist-description">
-Enter your email and leave an optional comment. Your email will be submitted directly to the Exploner waitlist without opening the Google Form page.
+Be among the first to experience contextual visual demonstrations, interactive AI sessions, and adaptive virtual-lab technology.
 </p>
 
 <form
@@ -1603,32 +1577,23 @@ id="explonerWaitlistForm"
 class="waitlist-form"
 action="https://docs.google.com/forms/d/e/1FAIpQLSe7MnqcOX0fbbLOkeER3iIz-I44xUeZKZQMZ1omgtsmB9ryZQ/formResponse"
 method="POST"
-target="waitlistSubmissionFrame"
+target="explonerWaitlistFrame"
 >
 
-<div class="form-group">
-<label for="waitlistEmail">Email address</label>
+<label class="email-label" for="waitlistEmail">
+Email address
+</label>
+
+<div class="email-row">
 
 <input
 id="waitlistEmail"
 type="email"
 name="entry.377011991"
-placeholder="you@example.com"
+placeholder="Enter your email address"
 autocomplete="email"
 required
 >
-</div>
-
-<div class="form-group">
-<label for="waitlistComment">Comments</label>
-
-<textarea
-id="waitlistComment"
-name="entry.COMMENTS_FIELD_ID"
-placeholder="Tell us what interests you about Exploner or how you would like to use it."
-maxlength="1500"
-></textarea>
-</div>
 
 <button
 id="waitlistSubmitButton"
@@ -1636,8 +1601,9 @@ class="waitlist-submit"
 type="submit"
 >
 Join Waitlist
-<span aria-hidden="true">→</span>
 </button>
+
+</div>
 
 <div
 id="waitlistMessage"
@@ -1646,15 +1612,11 @@ role="status"
 aria-live="polite"
 ></div>
 
-<p class="form-privacy">
-Your information will be submitted to the Exploner Google Form and stored in its connected Google Sheet.
-</p>
-
 </form>
 
 <iframe
-name="waitlistSubmissionFrame"
-id="waitlistSubmissionFrame"
+id="explonerWaitlistFrame"
+name="explonerWaitlistFrame"
 title="Waitlist submission"
 style="display:none;"
 ></iframe>
@@ -1698,7 +1660,7 @@ solomon@exploner.tech ↗
 <div class="container footer-inner">
 
 <a class="footer-logo" href="#top">
-<img src="favicon.png?v=5" alt="Exploner logo">
+<img src="favicon.png?v=6" alt="Exploner logo">
 <span>Exploner</span>
 </a>
 
@@ -1722,70 +1684,73 @@ solomon@exploner.tech
 
 const waitlistForm = document.getElementById("explonerWaitlistForm");
 const waitlistEmail = document.getElementById("waitlistEmail");
-const waitlistComment = document.getElementById("waitlistComment");
-const waitlistButton = document.getElementById("waitlistSubmitButton");
+const waitlistSubmitButton = document.getElementById("waitlistSubmitButton");
 const waitlistMessage = document.getElementById("waitlistMessage");
-const submissionFrame = document.getElementById("waitlistSubmissionFrame");
+const waitlistFrame = document.getElementById("explonerWaitlistFrame");
 
-let formIsSubmitting = false;
+let waitlistSubmitted = false;
+let waitlistSubmissionTimer = null;
+
+function showWaitlistMessage(text, type){
+waitlistMessage.textContent = text;
+waitlistMessage.className = "form-message " + type;
+}
 
 waitlistForm.addEventListener("submit", function(event){
 
-const emailValue = waitlistEmail.value.trim();
+const email = waitlistEmail.value.trim();
 
-if(!emailValue){
-event.preventDefault();
-showWaitlistMessage(
-"Please enter your email address.",
-"error"
-);
-waitlistEmail.focus();
-return;
-}
-
-if(!waitlistEmail.checkValidity()){
-event.preventDefault();
-showWaitlistMessage(
-"Please enter a valid email address.",
-"error"
-);
-waitlistEmail.focus();
-return;
-}
-
-formIsSubmitting = true;
-waitlistButton.disabled = true;
-waitlistButton.innerHTML = "Submitting...";
-waitlistMessage.className = "form-message";
 waitlistMessage.textContent = "";
+waitlistMessage.className = "form-message";
+
+if(!email || !waitlistEmail.checkValidity()){
+event.preventDefault();
+showWaitlistMessage("Please enter a valid email address.", "error");
+waitlistEmail.focus();
+return;
+}
+
+waitlistSubmitted = true;
+waitlistSubmitButton.disabled = true;
+waitlistSubmitButton.textContent = "Joining...";
+
+clearTimeout(waitlistSubmissionTimer);
+
+waitlistSubmissionTimer = setTimeout(function(){
+
+if(waitlistSubmitted){
+waitlistSubmitted = false;
+waitlistSubmitButton.disabled = false;
+waitlistSubmitButton.textContent = "Join Waitlist";
+showWaitlistMessage(
+"We could not confirm your submission. Please try again.",
+"error"
+);
+}
+
+}, 12000);
 
 });
 
-submissionFrame.addEventListener("load", function(){
+waitlistFrame.addEventListener("load", function(){
 
-if(!formIsSubmitting){
+if(!waitlistSubmitted){
 return;
 }
 
-formIsSubmitting = false;
+waitlistSubmitted = false;
+clearTimeout(waitlistSubmissionTimer);
+
+waitlistForm.reset();
+waitlistSubmitButton.disabled = false;
+waitlistSubmitButton.textContent = "Join Waitlist";
 
 showWaitlistMessage(
-"Thank you. Your waitlist submission has been received.",
+"You are now on the Exploner waitlist.",
 "success"
 );
 
-waitlistForm.reset();
-waitlistButton.disabled = false;
-waitlistButton.innerHTML = 'Join Waitlist <span aria-hidden="true">→</span>';
-
 });
-
-function showWaitlistMessage(message,type){
-
-waitlistMessage.textContent = message;
-waitlistMessage.className = "form-message " + type;
-
-}
 
 </script>
 
